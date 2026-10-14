@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TerraPotencial | Inteligência Territorial & Anteprojetos de Loteamento</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+              display: ['"Space Grotesk"', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                50: '#ecfdf5',
+                100: '#d1fae5',
+                200: '#a7f3d0',
+                300: '#6ee7b7',
+                400: '#34d399',
+                500: '#10b981',
+                600: '#059669',
+                700: '#047857',
+                800: '#065f46',
+                900: '#064e3b',
+                950: '#022c22',
+              },
+              geo: {
+                dark: '#090d16',
+                card: '#0f172a',
+                border: '#1e293b',
+                contour: '#22c55e',
+                water: '#0ea5e9',
+                reserve: '#10b981',
+                urban: '#f59e0b',
+              }
+            }
+          }
+        }
+      }
+    </script>
+      </head>
+  <body class="bg-[#080d17] text-slate-100 antialiased selection:bg-emerald-500 selection:text-white">
+    <div id="root"></div>
+  <script type="module" src="/index.js"></script></body>
+</html>
