@@ -1,0 +1,3 @@
+import { Link } from 'react-router';
+import type { RecordModel } from 'pocketbase';
+export function NewsArticle({ post }: { post: RecordModel }) { return <main className="article-shell"><Link to="/noticias" className="inline-link">← Todas as atualizações</Link><p className="section-index">ATUALIZAÇÃO · {new Date(post.created).toLocaleDateString('pt-BR', { dateStyle: 'long', timeZone: 'UTC' })}</p><h1>{post.titulo}</h1><p className="article-lead">{post.resumo}</p><div className="article-body">{post.conteudo}</div><a href="/#contato" className="inline-link">Tem alguma dúvida? Entre em contato.</a></main>; }

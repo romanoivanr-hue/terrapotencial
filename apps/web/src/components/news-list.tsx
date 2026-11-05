@@ -1,0 +1,4 @@
+import { Link } from 'react-router';
+import { ArrowUpRight, Newspaper } from 'lucide-react';
+import type { RecordModel } from 'pocketbase';
+export function NewsList({ posts }: { posts: RecordModel[] }) { return posts.length ? <div className="news-list">{posts.map(post => <Link to={`/noticias/${post.id}`} key={post.id}><span className="section-index">ATUALIZAÇÃO · {new Date(post.created).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC' })}</span><h3>{post.titulo}</h3><p>{post.resumo}</p><ArrowUpRight size={22}/></Link>)}</div> : <div className="empty-state"><Newspaper size={30} strokeWidth={1}/><div><h3>O próximo capítulo está por vir.</h3><p>As novidades do estudo serão publicadas neste espaço.</p></div><a href="/#inscricao" className="inline-link">Receber atualizações <ArrowUpRight size={17}/></a></div>; }

@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.react-router/
+apps/web/.react-router/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+terrapotencial360-atualizado.zip
