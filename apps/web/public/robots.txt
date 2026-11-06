@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://terrapotencial360.eusouivanromano.com.br/sitemap.xml

@@ -21,7 +21,11 @@ const PLANOS = [
 export function Contact() {
 	const form = useFormSubmission({
 		submit: async (_values, formData) => {
-			const response = await fetch('/enviar-contato.php', {
+			formData.append('_subject', 'Nova solicitação - Terra Potencial 360');
+			formData.append('_template', 'table');
+			formData.append('_captcha', 'false');
+
+			const response = await fetch('https://formsubmit.co/ajax/ivan@eusouivanromano.com.br', {
 				method: 'POST',
 				body: formData,
 				headers: { Accept: 'application/json' },
