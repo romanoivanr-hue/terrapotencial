@@ -1,12 +1,10 @@
 import { Link, NavLink } from 'react-router';
-import { ArrowUpRight, ShoppingBag, Menu, X, MessageCircle } from 'lucide-react';
-import { useCart } from '@/hooks/use-ecommerce-cart';
+import { ArrowUpRight, Menu, X, MessageCircle } from 'lucide-react';
 import { useDisclosure } from '@/hooks/use-disclosure';
 import { whatsappUrl } from '@/lib/contact-links';
 import { LOGO_IMAGE, WHATSAPP_NUMBER, WHATSAPP_MESSAGE } from '@/constants/site';
 
 export function SiteHeader() {
-	const { lines, isLoading } = useCart();
 	const menu = useDisclosure();
 	const open = menu.isOpen;
 
@@ -46,10 +44,6 @@ export function SiteHeader() {
 					<MessageCircle size={18} strokeWidth={1.6} />
 					<span>WhatsApp</span>
 				</a>
-				<Link to="/cart" className="cart-link" aria-label="Abrir carrinho">
-					<ShoppingBag size={20} strokeWidth={1.6} />
-					{!isLoading && <span>{lines.length}</span>}
-				</Link>
 				<Link to="/#contato" className="button header-cta">
 					Solicitar análise <ArrowUpRight size={16} />
 				</Link>
