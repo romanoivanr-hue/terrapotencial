@@ -164,6 +164,8 @@ export type Plan = {
 	image: string;
 	/** Título do produto na loja — quando presente, o botão leva à página do produto. */
 	productTitle?: string;
+	/** Checkout externo de produção para contratação direta. */
+	checkoutUrl?: string;
 	/** Quando true, o botão leva ao formulário de contato em vez do checkout. */
 	contact?: boolean;
 	note?: string;
@@ -188,6 +190,7 @@ export const PLANS: Plan[] = [
 		cta: 'Contratar estudo',
 		image: 'deliverable',
 		productTitle: 'Estudo Inicial',
+		checkoutUrl: 'https://link.infinitepay.io/irlopesconsultor/VC1D-Uxl6yqSCvW-777,00',
 	},
 	{
 		key: 'completo',
@@ -208,6 +211,7 @@ export const PLANS: Plan[] = [
 		cta: 'Contratar estudo',
 		image: 'after',
 		productTitle: 'Estudo Completo',
+		checkoutUrl: 'https://link.infinitepay.io/irlopesconsultor/VC1D-5FirXg9AIx-1790,00',
 	},
 	{
 		key: 'assinatura',

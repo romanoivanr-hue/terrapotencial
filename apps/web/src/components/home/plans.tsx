@@ -26,11 +26,11 @@ export function Plans({ products }: { products: ProductListItem[] }) {
 					const product = plan.productTitle
 						? products.find((p) => p.title === plan.productTitle)
 						: undefined;
-					const href = plan.contact
+					const href = plan.checkoutUrl ?? (plan.contact
 						? '/#contato'
 						: product
 							? `/product/${product.url_handle}`
-							: '/#contato';
+							: '/#contato');
 					return (
 						<div className={plan.highlight ? 'plan highlight' : 'plan'} key={plan.key}>
 							{plan.highlight && <span className="plan-badge">RECOMENDADO</span>}
@@ -59,9 +59,20 @@ export function Plans({ products }: { products: ProductListItem[] }) {
 									))}
 								</ul>
 								<p className="plan-limits">{plan.limits}</p>
-								<Link to={href} className={plan.highlight ? 'button accent' : 'button'}>
-									{plan.cta} <ArrowUpRight size={17} />
-								</Link>
+								{plan.checkoutUrl ? (
+									<a
+										href={href}
+										className={plan.highlight ? 'button accent' : 'button'}
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										{plan.cta} <ArrowUpRight size={17} />
+									</a>
+								) : (
+									<Link to={href} className={plan.highlight ? 'button accent' : 'button'}>
+										{plan.cta} <ArrowUpRight size={17} />
+									</Link>
+								)}
 								{plan.note && <p className="plan-note">{plan.note}</p>}
 							</div>
 						</div>
