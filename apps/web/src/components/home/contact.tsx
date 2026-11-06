@@ -1,6 +1,5 @@
-import { Link } from 'react-router';
+import { Link, useSearchParams } from 'react-router';
 import { ArrowUpRight, Mail, MessageCircle } from 'lucide-react';
-import { useFormSubmission } from '@/hooks/use-form-submission';
 import { whatsappUrl } from '@/lib/contact-links';
 import { WHATSAPP_NUMBER, WHATSAPP_MESSAGE, CONTACT_EMAIL } from '@/constants/site';
 
@@ -19,23 +18,8 @@ const PLANOS = [
 ];
 
 export function Contact() {
-	const form = useFormSubmission({
-		submit: async (_values, formData) => {
-			formData.append('_subject', 'Nova solicitação - Terra Potencial 360');
-			formData.append('_template', 'table');
-			formData.append('_captcha', 'false');
-
-			const response = await fetch('https://formsubmit.co/ajax/ivan@eusouivanromano.com.br', {
-				method: 'POST',
-				body: formData,
-				headers: { Accept: 'application/json' },
-			});
-
-			if (!response.ok) {
-				throw { status: response.status };
-			}
-		},
-	});
+	const [searchParams] = useSearchParams();
+	const wasSent = searchParams.get('enviado') === '1';
 
 	return (
 		<section id="contato" className="section contact">
@@ -73,8 +57,27 @@ export function Contact() {
 						</a>
 					</div>
 				</div>
-				<form className="contact-form" onSubmit={form.onSubmit}>
-					<input {...form.honeypotProps} />
+				<form
+					className="contact-form"
+					action="https://formsubmit.co/ivan@eusouivanromano.com.br"
+					method="POST"
+				>
+					<input type="hidden" name="_subject" value="Nova solicitação - Terra Potencial 360" />
+					<input type="hidden" name="_template" value="table" />
+					<input type="hidden" name="_captcha" value="false" />
+					<input
+						type="hidden"
+						name="_next"
+						value="https://terrapotencial360.eusouivanromano.com.br/?enviado=1#contato"
+					/>
+					<input
+						type="text"
+						name="_honey"
+						tabIndex={-1}
+						autoComplete="off"
+						aria-hidden="true"
+						style={{ position: 'absolute', left: '-10000px', width: 1, height: 1 }}
+					/>
 					<h3>Solicitar análise preliminar</h3>
 					<p>Preencha os dados e descreva a área.</p>
 					<div className="form-row">
@@ -181,19 +184,14 @@ export function Contact() {
 							Os campos com * são obrigatórios. Seus dados são usados apenas para responder à
 							solicitação.
 						</small>
-						<button className="button" disabled={form.isSubmitting}>
-							{form.isSubmitting ? 'Enviando…' : 'Enviar solicitação'}
+						<button className="button" type="submit">
+							Enviar solicitação
 							<ArrowUpRight size={18} />
 						</button>
 					</div>
 					<div aria-live="polite">
-						{form.isSuccess && (
+						{wasSent && (
 							<p className="success-text">Solicitação recebida. Entraremos em contato em breve.</p>
-						)}
-						{form.isError && (
-							<p className="error-text">
-								Não foi possível enviar. Confira os campos e tente novamente.
-							</p>
 						)}
 					</div>
 				</form>
