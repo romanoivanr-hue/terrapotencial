@@ -59,7 +59,7 @@ export function Contact() {
 				</div>
 				<form
 					className="contact-form"
-					action="https://formsubmit.co/ivan@eusouivanromano.com.br"
+					action="https://formsubmit.co/romano.ivanr@gmail.com"
 					method="POST"
 				>
 					<input type="hidden" name="_subject" value="Nova solicitação - Terra Potencial 360" />
