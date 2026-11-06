@@ -1,5 +1,4 @@
 import {
-	data,
 	isRouteErrorResponse,
 	Links,
 	Meta,
@@ -9,7 +8,6 @@ import {
 } from 'react-router';
 import type { Route } from './+types/root';
 import stylesheet from '@/index.css?url';
-import { siteOrigin } from '@/lib/site-origin.server';
 import { HorizonsPreviewScripts } from '@/horizons-preview-scripts';
 import { CartProvider } from '@/hooks/use-ecommerce-cart';
 import { SiteHeader } from '@/components/site-header';
@@ -31,31 +29,6 @@ export const links: Route.LinksFunction = () => [
 		href: 'https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap',
 	},
 ];
-
-/**
- * Publishes the site's public origin, which `seo()` reads to build canonical and
- * `og:url` tags, and advertises the sitemap to crawlers that read response
- * headers rather than HTML.
- *
- * A `meta` export can only reach server data through `matches`, and the `headers`
- * export cannot see loader data at all, so both have to travel this way.
- */
-export function loader({ request }: Route.LoaderArgs) {
-	const origin = siteOrigin(request);
-
-	return data(
-		{ origin },
-		{ headers: { Link: `<${origin}/sitemap.xml>; rel="sitemap"; type="application/xml"` } },
-	);
-}
-
-/**
- * A page route that exports `headers` replaces this one, so merge `parentHeaders`
- * there rather than returning only that route's own headers.
- */
-export function headers({ loaderHeaders }: Route.HeadersArgs) {
-	return loaderHeaders;
-}
 
 export function Layout({ children }: { children: React.ReactNode }) {
 	return (

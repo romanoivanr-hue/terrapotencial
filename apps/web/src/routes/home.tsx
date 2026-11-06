@@ -1,6 +1,5 @@
 import type { Route } from './+types/home';
 import { seo } from '@/lib/seo';
-import { getProducts, EcommerceApiError } from '@/api/ecommerce-api';
 import { HERO_IMAGE } from '@/constants/site';
 import { FAQS } from '@/data/site-content';
 import { Hero } from '@/components/home/hero';
@@ -51,24 +50,7 @@ export function meta({ matches, location }: Route.MetaArgs) {
 	});
 }
 
-export async function loader() {
-	try {
-		const { products } = await getProducts({
-			limit: 24,
-			exclude_types: 'subscription',
-			sort_by: 'order',
-			order: 'ASC',
-		});
-		return { products };
-	} catch (error) {
-		if (error instanceof EcommerceApiError && error.status === 404) {
-			throw new Response('Não encontrado', { status: 404 });
-		}
-		throw error;
-	}
-}
-
-export default function Home({ loaderData }: Route.ComponentProps) {
+export default function Home() {
 	return (
 		<main>
 			<Hero />
@@ -77,7 +59,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
 			<Benefits />
 			<HowItWorks />
 			<Audiences />
-			<Plans products={loaderData.products} />
+			<Plans products={[]} />
 			<Trust />
 			<Faq />
 			<FinalCta />

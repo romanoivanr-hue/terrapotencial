@@ -47,7 +47,7 @@ const ROOT_ROUTE_ID = 'root';
 export const siteOriginFrom = (matches: readonly RouteMatchLike[]): string => {
 	const root = matches.find(match => match?.id === ROOT_ROUTE_ID);
 
-	return (root?.loaderData as { origin?: string } | undefined)?.origin ?? '';
+	return (root?.loaderData as { origin?: string } | undefined)?.origin ?? 'https://terrapotencial360.eusouivanromano.com.br';
 };
 
 export const absoluteUrl = (origin: string, target: string): string => {

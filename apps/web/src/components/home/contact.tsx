@@ -1,7 +1,6 @@
 import { Link } from 'react-router';
 import { ArrowUpRight, Mail, MessageCircle } from 'lucide-react';
 import { useFormSubmission } from '@/hooks/use-form-submission';
-import { pocketbaseClient as pb } from '@/lib/pocketbase-client';
 import { whatsappUrl } from '@/lib/contact-links';
 import { WHATSAPP_NUMBER, WHATSAPP_MESSAGE, CONTACT_EMAIL } from '@/constants/site';
 
@@ -21,12 +20,16 @@ const PLANOS = [
 
 export function Contact() {
 	const form = useFormSubmission({
-		submit: (values) => {
-			const payload = {
-				...values,
-				consentimento: values.consentimento === 'on',
-			};
-			return pb.collection('contatos').create(payload);
+		submit: async (_values, formData) => {
+			const response = await fetch('/enviar-contato.php', {
+				method: 'POST',
+				body: formData,
+				headers: { Accept: 'application/json' },
+			});
+
+			if (!response.ok) {
+				throw { status: response.status };
+			}
 		},
 	});
 
