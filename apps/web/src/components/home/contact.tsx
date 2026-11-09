@@ -59,17 +59,9 @@ export function Contact() {
 				</div>
 				<form
 					className="contact-form"
-					action="https://formsubmit.co/romano.ivanr@gmail.com"
+					action="https://script.google.com/macros/s/AKfycbz0y_UmesRWX-p89cbOgyl-tTe-rdnsesO5GzqgILM_DyQynomOXZrJuRB9y67yKyVe6w/exec"
 					method="POST"
 				>
-					<input type="hidden" name="_subject" value="Nova solicitação - Terra Potencial 360" />
-					<input type="hidden" name="_template" value="table" />
-					<input type="hidden" name="_captcha" value="false" />
-					<input
-						type="hidden"
-						name="_next"
-						value="https://terrapotencial360.eusouivanromano.com.br/?enviado=1#contato"
-					/>
 					<input
 						type="text"
 						name="_honey"
