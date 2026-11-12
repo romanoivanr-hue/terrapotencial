@@ -22,6 +22,17 @@ export function Deliverables() {
 					</div>
 				))}
 			</div>
+			<p className="environmental-intro">
+				Identifique as condicionantes ambientais do seu terreno. Nossos estudos apresentam um mapa com as
+				restrições ambientais identificadas, incluindo Áreas de Preservação Permanente (APPs), quando
+				aplicáveis, auxiliando na compreensão das limitações e do potencial de aproveitamento do imóvel.
+			</p>
+			<p className="technical-notice">
+				<strong>Importante:</strong> linhas de transmissão de energia elétrica, gasodutos e outras interferências
+				não identificadas nas bases utilizadas não são consideradas automaticamente nos estudos. Para que
+				essas estruturas sejam consideradas, o cliente deverá fornecer levantamento topográfico adequado
+				contendo sua localização.
+			</p>
 		</section>
 	);
 }

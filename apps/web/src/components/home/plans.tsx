@@ -26,7 +26,9 @@ export function Plans({ products }: { products: ProductListItem[] }) {
 					const product = plan.productTitle
 						? products.find((p) => p.title === plan.productTitle)
 						: undefined;
-					const href = plan.checkoutUrl ?? (plan.contact
+					const href = plan.infoPath
+						? `/?plano=estudo_${plan.key}#contato`
+						: plan.checkoutUrl ?? (plan.contact
 						? '/#contato'
 						: product
 							? `/product/${product.url_handle}`
@@ -59,7 +61,7 @@ export function Plans({ products }: { products: ProductListItem[] }) {
 									))}
 								</ul>
 								<p className="plan-limits">{plan.limits}</p>
-								{plan.checkoutUrl ? (
+								{plan.checkoutUrl && !plan.infoPath ? (
 									<a
 										href={href}
 										className={plan.highlight ? 'button accent' : 'button'}

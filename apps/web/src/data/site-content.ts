@@ -37,8 +37,9 @@ export const DELIVERABLES: Deliverable[] = [
 	},
 	{
 		icon: ShieldAlert,
-		title: 'Condicionantes',
-		description: 'Restrições, limites e áreas não edificáveis que incidem sobre a área.',
+		title: 'Condicionantes ambientais',
+		description:
+			'Mapa das restrições ambientais identificadas, incluindo Áreas de Preservação Permanente (APPs), quando aplicáveis.',
 	},
 	{
 		icon: TrendingUp,
@@ -166,6 +167,8 @@ export type Plan = {
 	productTitle?: string;
 	/** Checkout externo de produção para contratação direta. */
 	checkoutUrl?: string;
+	/** Página comercial exibida entre o formulário e o checkout. */
+	infoPath?: string;
 	/** Quando true, o botão leva ao formulário de contato em vez do checkout. */
 	contact?: boolean;
 	note?: string;
@@ -191,6 +194,7 @@ export const PLANS: Plan[] = [
 		image: 'deliverable',
 		productTitle: 'Estudo Inicial',
 		checkoutUrl: 'https://link.infinitepay.io/irlopesconsultor/VC1D-Uxl6yqSCvW-777,00',
+		infoPath: '/estudo-inicial',
 	},
 	{
 		key: 'completo',
@@ -212,6 +216,7 @@ export const PLANS: Plan[] = [
 		image: 'after',
 		productTitle: 'Estudo Completo',
 		checkoutUrl: 'https://link.infinitepay.io/irlopesconsultor/VC1D-5FirXg9AIx-1790,00',
+		infoPath: '/estudo-completo',
 	},
 	{
 		key: 'assinatura',

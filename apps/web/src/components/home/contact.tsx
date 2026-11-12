@@ -20,6 +20,8 @@ const PLANOS = [
 export function Contact() {
 	const [searchParams] = useSearchParams();
 	const wasSent = searchParams.get('enviado') === '1';
+	const requestedPlan = searchParams.get('plano') ?? '';
+	const selectedPlan = PLANOS.some((plan) => plan.value === requestedPlan) ? requestedPlan : '';
 
 	return (
 		<section id="contato" className="section contact">
@@ -108,7 +110,7 @@ export function Contact() {
 						</label>
 						<label>
 							Plano de interesse *
-							<select name="plano_interesse" required defaultValue="">
+							<select name="plano_interesse" required defaultValue={selectedPlan}>
 								<option value="" disabled>
 									Selecione…
 								</option>
