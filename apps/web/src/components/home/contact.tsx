@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router';
 import { ArrowUpRight, Mail, MessageCircle } from 'lucide-react';
 import { whatsappUrl } from '@/lib/contact-links';
@@ -22,6 +23,13 @@ export function Contact() {
 	const wasSent = searchParams.get('enviado') === '1';
 	const requestedPlan = searchParams.get('plano') ?? '';
 	const selectedPlan = PLANOS.some((plan) => plan.value === requestedPlan) ? requestedPlan : '';
+
+	useEffect(() => {
+		if (!wasSent) return;
+		const plan = window.sessionStorage.getItem('terrapotencial:selected-plan');
+		if (plan === 'estudo_inicial') window.location.replace('/estudo-inicial');
+		if (plan === 'estudo_completo') window.location.replace('/estudo-completo');
+	}, [wasSent]);
 
 	return (
 		<section id="contato" className="section contact">
@@ -63,6 +71,12 @@ export function Contact() {
 					className="contact-form"
 					action="https://script.google.com/macros/s/AKfycbz0y_UmesRWX-p89cbOgyl-tTe-rdnsesO5GzqgILM_DyQynomOXZrJuRB9y67yKyVe6w/exec"
 					method="POST"
+					onSubmit={(event) => {
+						const plan = new FormData(event.currentTarget).get('plano_interesse');
+						if (typeof plan === 'string') {
+							window.sessionStorage.setItem('terrapotencial:selected-plan', plan);
+						}
+					}}
 				>
 					<input
 						type="text"
