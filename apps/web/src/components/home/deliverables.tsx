@@ -22,11 +22,35 @@ export function Deliverables() {
 					</div>
 				))}
 			</div>
-			<p className="environmental-intro">
-				Identifique as condicionantes ambientais do seu terreno. Nossos estudos apresentam um mapa com as
-				restrições ambientais identificadas, incluindo Áreas de Preservação Permanente (APPs), quando
-				aplicáveis, auxiliando na compreensão das limitações e do potencial de aproveitamento do imóvel.
-			</p>
+			<div className="environmental-delivery">
+				<div className="environmental-copy">
+					<span className="section-eyebrow">MAPA INCLUÍDO DESDE O ESTUDO INICIAL</span>
+					<h3>Você recebe um mapa das condicionantes ambientais do terreno.</h3>
+					<p>
+						Identifique as condicionantes ambientais do seu terreno. Nossos estudos apresentam um mapa com as
+						restrições ambientais identificadas, incluindo Áreas de Preservação Permanente (APPs), quando
+						aplicáveis, auxiliando na compreensão das limitações e do potencial de aproveitamento do imóvel.
+					</p>
+				</div>
+				<div className="environmental-maps">
+					<figure>
+						<img
+							src="/assets/mapa-condicionantes-estudo-inicial.png"
+							alt="Exemplo ilustrativo do mapa de condicionantes ambientais do Estudo Inicial"
+							loading="lazy"
+						/>
+						<figcaption>Estudo Inicial · Imagem ilustrativa</figcaption>
+					</figure>
+					<figure>
+						<img
+							src="/assets/mapa-condicionantes-estudo-completo.png"
+							alt="Exemplo ilustrativo do mapa de condicionantes ambientais do Estudo Completo"
+							loading="lazy"
+						/>
+						<figcaption>Estudo Completo · Imagem ilustrativa</figcaption>
+					</figure>
+				</div>
+			</div>
 			<p className="technical-notice">
 				<strong>Importante:</strong> linhas de transmissão de energia elétrica, gasodutos e outras interferências
 				não identificadas nas bases utilizadas não são consideradas automaticamente nos estudos. Para que

@@ -106,7 +106,14 @@ h2 { font-size:clamp(30px, 3.4vw, 46px); font-weight:500; letter-spacing:-.04em;
 .deliverable-icon { width:46px; height:46px; border:1px solid hsl(var(--accent) / .3); border-radius:5px; display:grid; place-items:center; color:hsl(var(--accent)); }
 .deliverable h3 { font-size:17px; font-weight:600; letter-spacing:-.02em; }
 .deliverable p { font-size:13px; color:hsl(var(--muted-foreground)); line-height:1.7; }
-.environmental-intro { max-width:900px; margin:30px auto 0; text-align:center; font-size:14px; line-height:1.8; color:hsl(var(--foreground)); }
+.environmental-delivery { margin-top:42px; padding:36px; background:hsl(var(--sand)); border:1px solid hsl(var(--border)); border-radius:6px; }
+.environmental-copy { max-width:830px; margin:0 auto 28px; text-align:center; }
+.environmental-copy h3 { margin:10px 0 12px; font-size:clamp(24px, 3vw, 36px); line-height:1.15; letter-spacing:-.035em; }
+.environmental-copy p { font-size:14px; line-height:1.8; color:hsl(var(--muted-foreground)); }
+.environmental-maps { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:18px; }
+.environmental-maps figure { margin:0; overflow:hidden; background:hsl(var(--card)); border:1px solid hsl(var(--border)); border-radius:5px; }
+.environmental-maps img { display:block; width:100%; aspect-ratio:16/10; object-fit:cover; }
+.environmental-maps figcaption { padding:12px 14px; font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:hsl(var(--muted-foreground)); }
 .technical-notice { max-width:960px; margin:18px auto 0; padding:16px 18px; border-left:3px solid hsl(var(--accent)); background:hsl(var(--sand)); color:hsl(var(--muted-foreground)); font-size:11.5px; line-height:1.75; }
 /* ---------- Demo ---------- */
 .demo { background:hsl(var(--primary)); color:hsl(var(--primary-foreground)); }
@@ -375,6 +382,8 @@ small a { text-decoration:underline; text-underline-offset:3px; }
  h2 { font-size:28px; }
  .section-head { margin-bottom:38px; }
  .deliverables-grid { grid-template-columns:1fr; }
+ .environmental-delivery { padding:24px 16px; }
+ .environmental-maps { grid-template-columns:1fr; }
  .demo-compare { grid-template-columns:1fr; }
  .process-steps { grid-template-columns:1fr; gap:36px; }
  .process-steps::before { display:none; }

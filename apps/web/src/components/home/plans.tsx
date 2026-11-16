@@ -27,7 +27,7 @@ export function Plans({ products }: { products: ProductListItem[] }) {
 						? products.find((p) => p.title === plan.productTitle)
 						: undefined;
 					const href = plan.infoPath
-						? `/?plano=estudo_${plan.key}#contato`
+						? plan.infoPath
 						: plan.checkoutUrl ?? (plan.contact
 						? '/#contato'
 						: product
